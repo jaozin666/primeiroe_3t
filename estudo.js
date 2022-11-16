@@ -1,3 +1,5 @@
+let tabuada = 4;
+
 function escreva(){
     document.write("<h1>Tabuada do " + tabuada + "</h1>");
     document.write(tabuada + " x 1 = " + (tabuada*1)+"<br>");
@@ -28,8 +30,6 @@ function quadrado(){
     }
 }
 
-
-
 function moeda(atual){
     return atual.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'});
 }
@@ -58,11 +58,14 @@ function calcula(){
         return
     }
     let res = val;
+    let texto = "";
     for(let m=1; m <= t;m++){
         res = val * (1+(j/100));
         val = res;
+        texto += m + ": " + moeda(res) + "<br>"; 
         //document.write("Mês " + m + " = " + moeda(res) + "<br>");
-    }    
+    }
+    document.getElementById("mes").innerHTML=texto;
     document.getElementById("total").innerHTML= "Total: " + moeda(res);
     //document.write("Resultado: "+moeda(res));
 }
